@@ -1,0 +1,57 @@
+/* CSS for Comments Component */
+.comments-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+  }
+  
+  .biography {
+    flex: 1; /* Biography takes up 50% of the container */
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .biography h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .biography p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .comments-section {
+    flex: 1; /* Comments take up 50% of the container */
+    padding: 10px;
+  }
+  
+  .comments-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .comment-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .comment-item {
+    margin-bottom: 15px;
+  }
+  
+  .commenter-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .comment-text {
+    font-size: 16px;
+  }
+  
