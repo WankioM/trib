@@ -18,12 +18,12 @@
   }
   
   .biography h2 {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 10px;
   }
   
   .biography p {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 8px;
   }
   
@@ -33,7 +33,7 @@
   }
   
   .comments-section h3 {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 10px;
   }
   
@@ -52,6 +52,21 @@
   }
   
   .comment-text {
-    font-size: 16px;
+    font-size: 14px;
   }
   
+  .comment-actions button{
+    background-color: white;
+    color: black;
+    margin: 3px;
+    border: 1px solid #9095ad92; /* 5px thick, solid black border at the bottom */
+
+
+  }
+
+  .comment-actions button:hover{
+    background-color: #9095ad92;
+    
+
+
+  }

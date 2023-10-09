@@ -1,0 +1,40 @@
+/* App.css or a separate CSS file */
+.search-page {
+    text-align: center;
+  }
+  
+  .person-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .person-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+  
+  .person-card:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .person-details {
+    margin-top: 10px;
+  }
+  
+  .person-details p {
+    margin: 5px 0;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  

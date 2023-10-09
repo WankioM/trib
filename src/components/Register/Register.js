@@ -1,9 +1,17 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "./Register.css"
-import { useHistory } from 'react-router-dom';
+import { useAuth, AuthContext  } from '../Context/AuthContext';
+
 
 function RegistrationForm() {
+
+  const navigate = useNavigate();
+  const { setGeneratedId } = useContext(AuthContext);
+  
+  
+  
   const [formData, setFormData] = useState({
     deceasedName: '',
     dateOfBirth: '',
@@ -12,8 +20,7 @@ function RegistrationForm() {
     deathCertificateNumber: '',
   });
 
-  const history = useHistory();
-
+ 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -38,8 +45,14 @@ function RegistrationForm() {
       .then((response) => {
         // Registration was successful
         console.log(response.data.message);
-        // You can handle success, e.g., redirect to a thank you page
-        history.push('/dashboard');
+        const generatedId = response.data.generatedId;
+
+        console.log(response.data.generatedId);
+        setGeneratedId(generatedId);
+        
+
+        navigate(`/dashboard`);
+     
       })
       .catch((error) => {
         // Handle registration error
@@ -50,6 +63,7 @@ function RegistrationForm() {
 
   
     return (
+      <div className='grad-background'>
       <div className="registration-container">
         <h2>Register a Death</h2>
         <form onSubmit={handleSubmit}>
@@ -110,6 +124,7 @@ function RegistrationForm() {
           </div>
           <button type="submit" onClick={handleSubmit}>Register</button>
         </form>
+      </div>
       </div>
     );
     }

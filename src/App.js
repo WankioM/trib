@@ -1,7 +1,7 @@
 import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import { BrowserRouter as Router, Route, Routes, Switch } from 'react-router-dom';
 import './App.css';
-import { Home } from './components/HomePage/Homepage';
+import  HomePage  from './components/HomePage/Homepage';
 import { Profile } from './components/Profile/Profile';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import RegistrationForm from './components/Register/Register';
@@ -12,31 +12,35 @@ import SecondaryManager from './components/Dashboard/Details/SecondaryManager';
 import UpdateProfile from './components/Dashboard/Details/UpdateProfile';
 import Media from './components/Dashboard/Details/Media';
 import DeceasedList from './components/Search/Search';
-import { useHistory } from 'react-router-dom';
+import { AuthProvider } from './components/Context/AuthContext';
+
 
 
 
 function App() {
   return (
-      <Router>
-        <div className="App">
-          <Switch>
-            <Route path="/profile"> <Profile/> </Route> 
-            <Route path="/register"> <RegistrationForm/> </Route> 
-            <Route path="/dashboard"> <ProfileManagerDashboard/> </Route> 
-            <Route path="/search"> <DeceasedList/> </Route> 
-            <Route path="/comments"> <Comments/> </Route> 
-            <Route path="/media"> <Media/> </Route> 
-            <Route path="/sadaqah"> <Sadaqah/> </Route> 
-            <Route path="/secondarymanager"> <SecondaryManager/> </Route> 
-            <Route path="/updateprofile"> <UpdateProfile/> </Route> 
-            <Route path="/"> <Home /> </Route> 
-            <Route path="*"> <ErrorPage /> </Route> 
-            
-          </Switch>
-        </div>
-      </Router>
+    <Router>
+      <AuthProvider>
+      <div className="App">
+        <Routes>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/register" element={<RegistrationForm />} />
+          <Route path="/dashboard" element={<ProfileManagerDashboard />} />
+          <Route path="/dashboard/:generatedId" element={<ProfileManagerDashboard />} />
+          <Route path="/search" element={<DeceasedList />} />
+          <Route path="/comments" element={<Comments />} />
+          <Route path="/media" element={<Media />} />
+          <Route path="/sadaqah" element={<Sadaqah />} />
+          <Route path="/secondarymanager" element={<SecondaryManager />} />
+          <Route path="/updateprofile" element={<UpdateProfile />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </div>
+      </AuthProvider>
+    </Router>
   );
 }
+
 
 export default App;

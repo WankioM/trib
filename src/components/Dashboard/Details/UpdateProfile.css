@@ -1,0 +1,48 @@
+@import '../../../variables.css';
+
+.profilesection{
+    max-width: 80vw;
+    margin-top: 5%;
+    align-items: left;
+}
+
+.profilesection label{
+    font-family: "Lato-Thin", Helvetica;
+    font-size: 14px;
+    font-weight: 600;
+
+}
+
+.inputdiv{
+    padding: 14px;
+    width: 80%;
+}
+
+.inputdiv input{
+    border-color: #9095ad98;
+    border-width: 1px;
+    border-radius: 3px;
+
+}
+
+
+.upload-image {
+    text-align: left; /* Align text within the div to the left */
+  
+    /* If you want to align child elements to the left, you can use the following */
+    display: flex;
+    flex-direction: column; /* Align child elements vertically (top to bottom) */
+    align-items: flex-start; /* Align child elements to the left */
+    margin: 5%;
+  }
+
+  .profilesection h3{
+    font-family: 'Tiro Devanagari Sanskrit';
+    margin-left: 20px;
+  }
+  
+
+  .profilesection button{
+    margin-left: 15px;
+    max-width: 100px;
+  }

@@ -1,19 +1,26 @@
 import React from "react";
-import { useHistory, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { useNavigate } from 'react-router-dom';
 import "./Home.css";
+import homeimage from '../../assets/vintageflowers.png';
 
-export const Home = () => {
+function HomePage() {
 
-  const history = useHistory();
+  const navigate = useNavigate();
+  
 
   const handleHomeClick = () => {
     // Navigate to the home route ("/")
-    history.push('/');
+    navigate('/');
+    
   };
 
   const handleRegisterClick = () => {
-    // Navigate to the home route ("/")
-    history.push('/register');
+    
+    
+  
+    // Navigate to the route ("/register")
+    navigate('/register');
+   
   };
 
 
@@ -21,7 +28,11 @@ export const Home = () => {
     <div className="desktop">
       <div className="fram">
         <div className="overlap-grouph">
-          <img className="backg" alt="Backg" src="backg.png" />
+        <img
+            className="backg"
+            alt="Backgrrrrr"
+            src={homeimage}
+            />
           <div className="tint" />
           <div className="homeleft" />
           <div className="homeright" />
@@ -40,7 +51,7 @@ export const Home = () => {
           <div className="text-wrapper-2h" 
           style={{ cursor: 'pointer' }}
           onClick={handleRegisterClick}>Register
-          <Link to="/register">Go to Registration</Link>
+          
           </div>
           
           <div className="rectangle-wrapper">
@@ -52,3 +63,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default HomePage;

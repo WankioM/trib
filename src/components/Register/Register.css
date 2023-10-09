@@ -18,12 +18,14 @@ button {
 
 /* Layout and Styling */
 .registration-container {
-    max-width: 400px;
+    max-width: 450px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    border: none; /* Remove the border */
+     /* Slightly increase border radius for a softer look */
+    background-color: #f0f0f03e; /* Use a light gray background color */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Apply a subtle box shadow for neumorphic effect */
+    backdrop-filter: blur(10px);
 }
 
 .input-group {
@@ -39,16 +41,16 @@ label {
 input[type="text"],
 input[type="date"],
 textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #f5c5c5;
     border-radius: 5px;
 }
 
 button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #9095AD;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -56,5 +58,9 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #89734A;
+}
+
+.grad-background {
+    background-image: linear-gradient(to right top, #968aa8, #a499b4, #9c98b2, #9095ad, #8090a3, #728e9d, #688b93, #628887, #608678, #698265, #787c54, #89734a);
 }

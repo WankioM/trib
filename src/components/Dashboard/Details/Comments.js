@@ -18,8 +18,8 @@ function Comments() {
 
     Her kitchen was her canvas, and her dishes were vibrant works of art. Maria's innovative fusion of flavors and dedication to fresh, local ingredients earned her acclaim and a loyal following. Whether she was crafting exquisite fine dining experiences or comforting homestyle meals, Maria's passion for food was evident in every bite.
     
-    Beyond her culinary prowess, Maria's warm personality and generosity endeared her to all who had the privilege of savoring her creations. Her legacy lives on through the countless lives she touched with her delicious and heartwarming dishes, forever cherished by those who had the pleasure of dining at her table.`,
-    // Add more biography details as needed
+    Beyond her culinary prowess, Maria's warm personality and generosity endeared her to all who had the privilege of savoring her creations. Her legacy lives on through the countless lives she touched with her delicious and heartwarming dishes, forever cherished by those who had the pleasure of dining at her table.
+    Whether she was crafting exquisite fine dining experiences or comforting homestyle meals, Maria's passion for food was evident in every bite. Beyond her culinary prowess, Maria's warm personality and generosity endeared her to all who had the privilege of savoring her creations. Her legacy lives on through the countless lives she touched with her delicious and heartwarming dishes, forever cherished by those who had the pleasure of dining at her table.`,// Add more biography details as needed
   };
 
   const handleDeleteComment = () => {

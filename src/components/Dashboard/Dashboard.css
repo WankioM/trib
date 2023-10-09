@@ -1,12 +1,26 @@
 @import '../../variables.css';
+.dashboard{
+  display:grid;
+  height: 100vh;
+  width: 100vw;
+  
+  grid-template-columns: [nav] 30% [cont] 70%;
+}
 
 .profile-manager-dashboard {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+
     background-color: #f9f9f9;
+    grid-column: nav;
+   
+  }
+  .cont{
+    grid-column: cont;
+  
+    max-width: 96%;
   }
   
   h2 {
@@ -28,19 +42,28 @@
     margin-bottom: 10px;
   }
   
-  button {
+  .profile-manager-dashboard button {
     width: 100%;
     padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+    background-color: rgba(240, 248, 255, 0.365);
+    color: #000000;
+    border-bottom: 1px solid #9095ad; /* 5px thick, solid black border at the bottom */
+
+    border-radius: 1px;
     cursor: pointer;
     margin-top: 10px;
-  }
+    
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   
-  button:hover {
-    background-color: #0056b3;
+  }
+
+ 
+  
+  .profile-manager-dashboard button:hover {
+    background-color: #68686815;
   }
   
   p {
