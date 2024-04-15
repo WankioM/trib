@@ -14,6 +14,8 @@ function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      const userEmail = userCredential.user.email;
+      login(username, userEmail);
       navigate(`/?userName=${encodeURIComponent(email)}`);
     } catch (error) {
       setError(error.message);
