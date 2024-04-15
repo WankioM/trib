@@ -14,7 +14,7 @@ function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate('/');
+      navigate(`/?userName=${encodeURIComponent(email)}`);
     } catch (error) {
       setError(error.message);
     }

@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,useLocation, Link} from 'react-router-dom';
 import "./Home.css";
 import homeimage from '../../assets/vintageflowers.png';
 import newUser from "../Register/NewUser";
@@ -8,6 +8,9 @@ import newUser from "../Register/NewUser";
 function HomePage() {
 
   const navigate = useNavigate();
+  const { search } = useLocation();
+  const params = new URLSearchParams(search);
+  const userName = params.get('userName');
   
 
   const handleHomeClick = () => {
@@ -50,16 +53,19 @@ function HomePage() {
           <div className="divh" 
           style={{ cursor: 'pointer' }}
           onClick={handleHomeClick}>Home</div>
-          <div className="text-wrapper-2h" 
-          style={{ cursor: 'pointer' }}
-          onClick={handleRegisterClick}>Register
-          
+        <div className="text-wrapper-2h" >
+          { !userName && 
+        <div className="text-wrapper-2h" style={{ cursor: 'pointer' }} onClick={handleRegisterClick}>
+          <Link to="/register">Register</Link>
+        </div>
+          }
+          { userName && <p style={{ cursor: 'pointer', color: 'white' }}>Hi, {decodeURIComponent(userName)}</p> }
           </div>
-          
           <div className="rectangle-wrapper">
             <p>Search by</p>
             <i className="bi bi-search" style={{ color: 'white' }}></i>
           </div>
+          
         </div>
       </div>
     </div>
