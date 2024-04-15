@@ -13,6 +13,9 @@ import UpdateProfile from './components/Dashboard/Details/UpdateProfile';
 import Media from './components/Dashboard/Details/Media';
 import DeceasedList from './components/Search/Search';
 import { AuthProvider } from './components/Context/AuthContext';
+import NewUser from './components/Register/NewUser';
+import Login from './components/Register/Login';
+import SignUpwithGoogle from './components/Register/SignUpwithGoogle';
 
 
 
@@ -33,8 +36,12 @@ function App() {
           <Route path="/sadaqah" element={<Sadaqah />} />
           <Route path="/secondarymanager" element={<SecondaryManager />} />
           <Route path="/updateprofile" element={<UpdateProfile />} />
+          <Route path="/newuser" element={<NewUser />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signupwithgoogle" element={<SignUpwithGoogle />} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<ErrorPage />} />
+      
         </Routes>
       </div>
       </AuthProvider>

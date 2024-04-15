@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import "./Home.css";
 import homeimage from '../../assets/vintageflowers.png';
+import newUser from "../Register/NewUser";
+
 
 function HomePage() {
 

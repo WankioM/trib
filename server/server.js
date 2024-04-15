@@ -1,12 +1,60 @@
 const express = require('express');
+const path = require('path');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const firebase = require('firebase/app');
+require('firebase/auth'); // If you need authentication
+require('firebase/firestore'); // If you need Firestore
 
 
 const app = express();
 const port = process.env.PORT || 3001;
 
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCvFoNs3wwcocLN1HwWZ7-5-zia6KMsD2o",
+  authDomain: "trib-60c0f.firebaseapp.com",
+  projectId: "trib-60c0f",
+  storageBucket: "trib-60c0f.appspot.com",
+  messagingSenderId: "596060814842",
+  appId: "1:596060814842:web:a1e2b0e88d4d55c739f843",
+  measurementId: "G-PWNB8R1GFC"
+};
+
+// Initialize Firebase
+const tribapp = firebase.initializeApp(firebaseConfig);
+console.log("Firebase initialized successfully!");
+
+const admin = require('firebase-admin');
+
+const serviceAccountKeyPath = path.resolve(__dirname, 'trib-60c0f-firebase-adminsdk-9l9h7-0ed1b46746.json');
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccountKeyPath),
+});
+
+
+app.post('/api/register', async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    // Create user with email and password
+    const userRecord = await admin.auth().createUser({
+      email: email,
+      password: password,
+    });
+
+    // User created successfully
+    res.status(200).json({ message: 'User registered successfully', userId: userRecord.uid });
+  } catch (error) {
+    console.error('Error registering user:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+/*
 // Database configuration
 const db = mysql.createConnection({
   host: 'localhost',
@@ -105,6 +153,8 @@ app.post('/api/registerUser', (req, res) => {
   });
      
 });
+
+*/
 
 // Start the server
 app.listen(port, () => {
