@@ -1,10 +1,12 @@
 import React , { useState ,  useContext}from "react";
 import axios from "axios";
-import { useAuth , AuthContext } from '../../Context/AuthContext';
+//import { useAuth , AuthContext } from '../../Context/AuthContext';
 import "./UpdateProfile.css";
 
 
 export const UpdateProfile = ({ generatedId }) => {
+
+  /*
   
   const [isProfileUpdated, setIsProfileUpdated] = useState(false);
   const { login } = useContext(AuthContext);
@@ -45,9 +47,9 @@ export const UpdateProfile = ({ generatedId }) => {
     <div className="profilesection">
       <div className="fram">
         <div className="overlap-grouph">
-          {/* ... previous content ... */}
+       
           
-          {/* New utilities */}
+          // New utilities 
           <div className="upload-image">
             <h3> Account Details</h3>
             
@@ -91,11 +93,12 @@ export const UpdateProfile = ({ generatedId }) => {
             
           </div>
           
-          {/* ... remaining content ... */}
+          
         </div>
       </div>
     </div>
   );
+  */
 };
 
 export default UpdateProfile;

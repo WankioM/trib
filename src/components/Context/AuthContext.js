@@ -1,31 +1,26 @@
-import { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
-export const AuthContext = createContext();
+// Create a context for managing user authentication state
+const AuthContext = createContext();
 
+// Create a custom hook to access the authentication context
+export const useAuth = () => useContext(AuthContext);
+
+// AuthProvider component to provide authentication context
 export const AuthProvider = ({ children }) => {
-    const [generatedId, setGeneratedId] = useState(null);
-    const [profileId, setProfileId] = useState(null);
-  
-    const login = (id) => {
-      setProfileId(id);
-    };
-  
-    const setGeneratedIdValue = (id) => {
-      setGeneratedId(id);
-    };
-  
-    const logout = () => {
-      setGeneratedId(null);
-      setProfileId(null);
-    };
-  
-    return (
-      <AuthContext.Provider value={{ generatedId, profileId, login, logout, setGeneratedId: setGeneratedIdValue }}>
-        {children}
-      </AuthContext.Provider>
-    );
+  const [userInfo, setUserInfo] = useState({ userName: null, userEmail: null });
+
+  const login = (userName, userEmail) => {
+    setUserInfo({ userName, userEmail });
   };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
+  const logout = () => {
+    setUserInfo({ userName: null, userEmail: null });
+  };
+
+  return (
+    <AuthContext.Provider value={{ userInfo, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

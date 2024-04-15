@@ -6,13 +6,13 @@ import SecondaryManager from './Details/SecondaryManager';
 import Comments from './Details/Comments';
 import MediaManagement from './Details/Media';
 import Sadaqah from './Details/Sadaqah';
-import { AuthContext } from '../Context/AuthContext';
+// import { AuthContext } from '../Context/AuthContext';
 import BiologyInput from './Details/Biology';
 
 
 
 class ProfileManagerDashboard extends Component {
-
+/*
   static contextType = AuthContext;
 
   constructor(props) {
@@ -223,7 +223,7 @@ class ProfileManagerDashboard extends Component {
       <i class="bi bi-house-door-fill" style={{ fontSize: '34px', padding: '150px' }}></i>
        
       
-        {/* Additional Functionality Buttons */}
+        // Additional Functionality Buttons 
         <button onClick={this.handleUpdateProfile}>
         <span className="buttontext">Update Profile</span>
         <i class="bi bi-chevron-right"></i></button>
@@ -252,6 +252,7 @@ class ProfileManagerDashboard extends Component {
       </div>
     );
   }
+  */
 }
 
 export default ProfileManagerDashboard;

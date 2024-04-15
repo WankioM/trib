@@ -3,6 +3,8 @@ import { useNavigate ,useLocation, Link} from 'react-router-dom';
 import "./Home.css";
 import homeimage from '../../assets/vintageflowers.png';
 import newUser from "../Register/NewUser";
+import { useAuth } from '../Context/AuthContext';
+
 
 
 function HomePage() {
@@ -11,6 +13,7 @@ function HomePage() {
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const userName = params.get('userName');
+  const { userInfo } = useAuth();
   
 
   const handleHomeClick = () => {
@@ -25,6 +28,12 @@ function HomePage() {
   
     // Navigate to the route ("/register")
     navigate('/register');
+   
+  };
+
+  const handleCompleteRegistrationClick = () => {
+
+    navigate('/dashboard');
    
   };
 
@@ -53,14 +62,23 @@ function HomePage() {
           <div className="divh" 
           style={{ cursor: 'pointer' }}
           onClick={handleHomeClick}>Home</div>
-        <div className="text-wrapper-2h" >
-          { !userName && 
-        <div className="text-wrapper-2h" style={{ cursor: 'pointer' }} onClick={handleRegisterClick}>
-          <Link to="/register">Register</Link>
-        </div>
-          }
-          { userName && <p style={{ cursor: 'pointer', color: 'white' }}>Hi, {decodeURIComponent(userName)}</p> }
-          </div>
+
+        <div className="text-wrapper-2h">
+              {userInfo.userName === null && userInfo.userEmail === null && (
+                <div className="text-wrapper-2h" style={{ cursor: 'pointer' }} onClick={handleRegisterClick}>
+                  <Link to="/register">Register</Link>
+                </div>
+              )}
+              {userInfo.userName && (
+                <p style={{ cursor: 'pointer', color: 'white' }}>Hi, {decodeURIComponent(userInfo.userName)}</p>
+              )}
+              {userInfo.userName === null && userInfo.userEmail && (
+                <div className="text-wrapper-2h" style={{ cursor: 'pointer' }} onClick={handleCompleteRegistrationClick}>
+                  Complete Registration
+                </div>
+              )}
+            </div>
+        
           <div className="rectangle-wrapper">
             <p>Search by</p>
             <i className="bi bi-search" style={{ color: 'white' }}></i>
